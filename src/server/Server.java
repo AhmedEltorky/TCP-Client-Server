@@ -17,8 +17,8 @@ public class Server {
         try {
             serverSocket = new ServerSocket(9876);
             while (true) {
-                Socket clientServer = serverSocket.accept();
-                Connection connection = new Connection(clientServer);
+                Socket clientSocket = serverSocket.accept();
+                Connection connection = new Connection(clientSocket);
             }
         } catch (IOException ex) {
             System.out.println(ex.toString());

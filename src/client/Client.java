@@ -12,11 +12,11 @@ public class Client {
 
     public static void main(String[] args) {
 
-        Socket clientServer = null;
+        Socket clientSocket = null;
         try {
-            clientServer = new Socket("localhost", 9876);
-            DataInputStream in = new DataInputStream(clientServer.getInputStream());
-            DataOutputStream out = new DataOutputStream(clientServer.getOutputStream());
+            clientSocket = new Socket("localhost", 9876);
+            DataInputStream in = new DataInputStream(clientSocket.getInputStream());
+            DataOutputStream out = new DataOutputStream(clientSocket.getOutputStream());
 
             System.out.println("please enter your message:");
             out.writeUTF(new Scanner(System.in).nextLine());
@@ -26,9 +26,9 @@ public class Client {
         } catch (IOException ex) {
             System.out.println(ex.toString());
         } finally {
-            if (clientServer != null) {
+            if (clientSocket != null) {
                 try {
-                    clientServer.close();
+                    clientSocket.close();
                 } catch (IOException ex) {
                     System.out.println(ex.toString());
                 }
